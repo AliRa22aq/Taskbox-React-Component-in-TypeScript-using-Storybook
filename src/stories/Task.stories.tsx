@@ -6,9 +6,7 @@ import { Story } from '@storybook/react/types-6-0';
 import {TasksProps} from "../components/Task"
 
 export default {
-  component : {
-    Task
-},
+  component : Task,
   title: 'Task',
 };
 
