@@ -1,9 +1,10 @@
 // src/components/TaskList.js
 
 import React from 'react';
-
 import Task from './Task';
 import {TaskInterface} from "./Task"
+import "../index.css"
+import PropTypes from 'prop-types';
 
 
 export interface TasksListProps {
@@ -19,6 +20,7 @@ export const TaskList: React.FC<TasksListProps> = ({ tasks, loading, onPinTask, 
     onPinTask,
     onArchiveTask,
   };
+
   const LoadingRow = (
     <div className="loading-item">
       <span className="glow-checkbox" />
@@ -39,7 +41,7 @@ export const TaskList: React.FC<TasksListProps> = ({ tasks, loading, onPinTask, 
       </div>
     );
   }
-  if (tasks.length === 0) {
+  if (tasks?.length === 0) {
     return (
       <div className="list-items">
         <div className="wrapper-message">
@@ -50,19 +52,22 @@ export const TaskList: React.FC<TasksListProps> = ({ tasks, loading, onPinTask, 
       </div>
     );
   }
-  console.log(tasks)
-  const tasksInOrder = [
+
+
+  const TasksInOrder = [
     ...tasks.filter(t => t.state === 'TASK_PINNED'),
     ...tasks.filter(t => t.state !== 'TASK_PINNED'),
-  ];
-  console.log(tasksInOrder)
+  ]
+
   return (
     <div className="list-items">
-      {tasksInOrder.map(task => (
+      {TasksInOrder.map((task) => (
         <Task key={task.id} task={task} {...events} />
       ))}
     </div>
   );
 }
 
+
+export default TaskList
 

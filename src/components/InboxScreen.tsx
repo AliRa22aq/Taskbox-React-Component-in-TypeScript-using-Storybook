@@ -4,14 +4,16 @@ import React from 'react';
 import {useSelector} from "react-redux"
 import {TaskList} from './TaskList';
 import {TaskInterface} from "./Task"
+import "../index.css"
+
 
 export interface InboxScreenInterface {
     error?: any
 }
 
 const PureInboxScreen: React.FC<InboxScreenInterface> =  ({error}) => {
-    const returnState = useSelector((state:TaskInterface[]) => (state))        
-    console.log(returnState)
+    const state = useSelector((state:TaskInterface[]) => (state))        
+    console.log(state)
 
   if (error) {
     return (
@@ -32,7 +34,7 @@ const PureInboxScreen: React.FC<InboxScreenInterface> =  ({error}) => {
           <span className="title-wrapper">Taskbox</span>
         </h1>
       </nav>
-      <TaskList tasks = {returnState} loading = {false}/>
+      <TaskList tasks = {state} loading = {false}/>
     </div>
   );
 }
