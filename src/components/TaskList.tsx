@@ -14,7 +14,7 @@ export interface TasksListProps {
   
 }
 
-const TaskList: React.FC<TasksListProps> = ({ tasks, loading, onPinTask, onArchiveTask }) => {
+export const TaskList: React.FC<TasksListProps> = ({ tasks, loading, onPinTask, onArchiveTask }) => {
   const events = {
     onPinTask,
     onArchiveTask,
@@ -50,10 +50,12 @@ const TaskList: React.FC<TasksListProps> = ({ tasks, loading, onPinTask, onArchi
       </div>
     );
   }
+  console.log(tasks)
   const tasksInOrder = [
     ...tasks.filter(t => t.state === 'TASK_PINNED'),
     ...tasks.filter(t => t.state !== 'TASK_PINNED'),
   ];
+  console.log(tasksInOrder)
   return (
     <div className="list-items">
       {tasksInOrder.map(task => (
@@ -63,4 +65,4 @@ const TaskList: React.FC<TasksListProps> = ({ tasks, loading, onPinTask, onArchi
   );
 }
 
-export default TaskList
+

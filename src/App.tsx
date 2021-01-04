@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import PureInboxScreen  from './components/InboxScreen';
 
 function App() {
   return (
     <div className="App">
       Hello World!
       learn react
+      <PureInboxScreen  />
     </div>
   );
 }
