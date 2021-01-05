@@ -25,7 +25,7 @@ export default {
 
 const Template:Story<InboxScreenInterface> = (args) => <PureInboxScreen {...args} />;
 
-export const Default = Template.bind({});
+//export const Default = Template.bind({});
 
 export const Error = Template.bind({});
 Error.args = {

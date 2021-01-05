@@ -19,23 +19,13 @@ const taskSlice = createSlice({
 
         pinnedTask : (state , action:PayloadAction<any>) => {
             return state.map((task) => task.id === action.payload ? {...task , state:"TASK_PINNED"}: task)
-        } ,
-
-        add : (state , action:PayloadAction<any>) => {
-          
-            let id = Math.random().toString()
-            return [
-                ...state,
-                {id : id , title : action.payload.input , state : "TASK_INBOX" }
-            ]
         }
-    },
-
+    }
 });
 
 export const store = configureStore({
     reducer : taskSlice.reducer
 });
 
-export const {archiveTask , pinnedTask , add} = taskSlice.actions;
+export const {archiveTask , pinnedTask} = taskSlice.actions;
 export {taskSlice};

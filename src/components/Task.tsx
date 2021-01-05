@@ -1,21 +1,25 @@
 import React from 'react';
 import "../index.css"
-import {useDispatch} from "react-redux"
-import { archiveTask, pinnedTask } from '../store/taskSlice';
+import { useDispatch } from "react-redux"
+import { archiveTask, pinnedTask } from '../store/TaskSlice';
 
 export interface TaskInterface {
-    id?: string
-    title?: string
-    state?: string
-    updatedAt?: Date
+  id?: string
+  title?: string
+  state?: string
+  updatedAt?: Date
 }
 
 export interface TasksProps {
-    task: TaskInterface  
+  task: TaskInterface
 }
 
 const Task: React.FC<TasksProps> = ({ task: { id, title, state } }) => {
+
+  console.log(id, title, state)
+
   const dispatch = useDispatch();
+  console.log(dispatch)
 
   return (
     <div className={`list-item ${state}`}>
@@ -26,23 +30,21 @@ const Task: React.FC<TasksProps> = ({ task: { id, title, state } }) => {
           disabled={true}
           name="checked"
         />
-        <span className="checkbox-custom" onClick = {() => dispatch(archiveTask(id)) } />
+        <span className="checkbox-custom" onClick={() => dispatch(archiveTask(id))} />
       </label>
       <div className="title">
         <input type="text" value={title} readOnly={true} placeholder="Input title" />
       </div>
 
-      <div className="actions" onClick={event => event.stopPropagation()}>
-        {state !== 'TASK_ARCHIVED' && (
-          // eslint-disable-next-line jsx-a11y/anchor-is-valid
-          <a onClick = {() => dispatch(pinnedTask(id))} >
-            <span className={`icon-star`} />
+      <div className="actions" onClick={(event) => event.stopPropagation()}>
+        {state !== "TASK_ARCHIVED" ? (
+          <a href="/" onClick={() => dispatch(pinnedTask(id))}  >
+            <span onClick={(e) => { e.preventDefault() }} className={`icon-star`} ></span>
           </a>
-        )}
+        ) : null}
       </div>
     </div>
   );
 }
 
 export default Task;
-

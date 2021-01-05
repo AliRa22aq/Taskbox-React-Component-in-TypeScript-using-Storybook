@@ -4,7 +4,6 @@ import React from 'react';
 import Task from './Task';
 import {TaskInterface} from "./Task"
 import "../index.css"
-import PropTypes from 'prop-types';
 
 
 export interface TasksListProps {
@@ -61,9 +60,13 @@ export const TaskList: React.FC<TasksListProps> = ({ tasks, loading, onPinTask, 
 
   return (
     <div className="list-items">
-      {TasksInOrder.map((task) => (
-        <Task key={task.id} task={task} {...events} />
-      ))}
+        {TasksInOrder.map((task , i) => {
+            return (
+                <div key = {i}>
+                    <Task key = {i}  task = {task} {...events} />
+                </div>
+            )
+        })}
     </div>
   );
 }

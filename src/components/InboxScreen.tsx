@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {useSelector} from "react-redux"
-import {TaskList} from './TaskList';
+import TaskList from './TaskList';
 import {TaskInterface} from "./Task"
 import "../index.css"
 
