@@ -1938,6 +1938,16 @@
     core-js "^3.0.1"
     ts-dedent "^2.0.0"
 
+"@storybook/addon-decorator@^6.1.11":
+  version "6.1.11"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-decorator/-/addon-decorator-6.1.11.tgz#8013403ffb08ca46db7fbbe2a5d99746eb114ad9"
+  integrity sha512-d2f8AdV5P1/nJ9d7CP+hGJqdx10HulcZXUkpH6WoD/ADe8NmXji2VQgxLk5U/+3FU9k/LZ6dlxpev1HL8hBrmQ==
+  dependencies:
+    "@storybook/addons" "6.1.11"
+    "@storybook/client-api" "6.1.11"
+    core-js "^3.0.1"
+    global "^4.4.0"
+
 "@storybook/addon-docs@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/addon-docs/-/addon-docs-6.1.11.tgz#5c4c06a0e9d34bd41d993c682141c19fe4a6061a"
